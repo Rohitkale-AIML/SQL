@@ -1,4 +1,4 @@
-# SQL STRING Functions
+## SQL STRING Functions
 
 LENGTH(column_name) => Length of string
 
@@ -10,7 +10,7 @@ RIGHT(column_name, 3) => Extracting the last 3 letters
 
 SUBSTRING(column_name, 2, 3) => Extracting 3 letters from the 2nd position
 
-# SQL DATE Functions
+## SQL DATE Functions
 
 CURDATE() => Gives current Date YYYY-MM-DD
 
@@ -48,7 +48,7 @@ TIMESTAMPDIFF(MINUTE, start_datetime, end_datetime) => minute duration between t
 
 STR_TO_DATE(string_column, "%Y-%m-%d %h:%i:%p") AS market_start_datetime => String to Date_Time Format
 
-# SQL AGGREGATE Functions (GROUP BY Clause)
+## SQL AGGREGATE Functions (GROUP BY Clause)
 
 COUNT(\*), COUNT(1), COUNT(2), COUNT(999) => Gives total rows including NULL & Duplicate
 
@@ -58,7 +58,7 @@ COUNT(DISTINCT column_name) => Gives total rows excluding NULL & Duplicate
 
 SUM(n) => Gives (total rows including NULL & Duplicate) \* n
 
-# SQL WINDOW Functions
+## SQL WINDOW Functions
 
 SUM(salary) OVER(ORDER BY salary ASC) AS cumulative_salary
 
@@ -80,16 +80,15 @@ NTILE(10) OVER(ORDER BY original_price DESC) AS price_ntile
 
 - NTILE(n) is a window function that distributes rows of an ordered partition into a specified number (n) of approximately equal groups, or buckets. It assigns each group a bucket number starting from one.
 
-# Used Defined Parameters
+## Used Defined Parameters
 
 **Write a query to extract all the transactions that are made between the dates 2019- 04-24' and '2019-05-24' using user defined parameters "start_date" and "end_date"**
-
-SET @start_date := '2019-04-24';
-
-SET @end_date := '2019-05-24';
-
-SELECT \* FROM customer_purchases
-
-WHERE market_date BETWEEN @start_date AND @end_date
-
-ORDER BY market_date;
+```SQL:
+  SET @start_date := '2019-04-24';
+  SET @end_date := '2019-05-24';
+  
+  SELECT \* 
+  FROM customer_purchases
+  WHERE market_date BETWEEN @start_date AND @end_date
+  ORDER BY market_date;
+```
