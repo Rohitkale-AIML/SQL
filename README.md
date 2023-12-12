@@ -1,5 +1,17 @@
 # SQL
 
+# Order of execution
+• FROM, including JOINs
+• WHERE
+• GROUP BY
+• HAVING
+• WINDOW functions
+• SELECT
+• DISTINCT
+• UNION
+• ORDER BY
+• LIMIT
+
 # Views vs CTEs
 
 Although there are some differences between them, common table expressions and views seem to perform very similarly. So, when should you use each one?
