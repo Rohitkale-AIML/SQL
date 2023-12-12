@@ -13,44 +13,28 @@
 - LIMIT
 
 # CASE Statement
-SELECT 
+  SELECT 
+    market_day,  
+    CASE  
+      WHEN market_day IN ('Saturday' , 'Sunday’) THEN 1    
+      ELSE 0    
+    END AS weekend_flag  
+  FROM 
+    farmers_market.market_date_info
 
-  market_day,
-  
-  CASE
-  
-    WHEN market_day IN ('Saturday' , 'Sunday’) THEN 1
-    
-    ELSE 0
-    
-  END AS weekend_flag
-  
-FROM 
-
-  farmers_market.market_date_info
-
-SELECT
-
-  market_date,
-  
-  customer_id,
-  
-  vendor_id,
-  
-  ROUND(quantity * cost_to_customer_per_qty, 2) AS price,
-  
-  CASE
-  
-    WHEN quantity * cost_to_customer_per_qty < 5.00 THEN 'Under $5'
-    WHEN quantity * cost_to_customer_per_qty < 10.00 THEN '$5-$9.99'
-    WHEN quantity * cost_to_customer_per_qty < 20.00 THEN '$10-$19.99'
-    WHEN quantity * cost_to_customer_per_qty >= 20.00 THEN '$20 and Up'
-    
-  END AS price_bin
-  
-FROM 
-
-  farmers_market.customer_purchases
+  SELECT
+    market_date,  
+    customer_id,  
+    vendor_id,  
+    ROUND(quantity * cost_to_customer_per_qty, 2) AS price,  
+    CASE  
+      WHEN quantity * cost_to_customer_per_qty < 5.00 THEN 'Under $5'
+      WHEN quantity * cost_to_customer_per_qty < 10.00 THEN '$5-$9.99'
+      WHEN quantity * cost_to_customer_per_qty < 20.00 THEN '$10-$19.99'
+      WHEN quantity * cost_to_customer_per_qty >= 20.00 THEN '$20 and Up'    
+    END AS price_bin  
+  FROM 
+    farmers_market.customer_purchases
 
 ## Window Functions
 Window fns give the ability to put the values from one row of data into context compared to a group of rows, or partition.
