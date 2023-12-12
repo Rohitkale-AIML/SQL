@@ -155,7 +155,7 @@ Although there are some differences between them, common table expressions and v
   SELECT City FROM Suppliers
   ORDER BY City;
 ```
-**TO get unique records only from first Table:**
+**To get unique records only from first Table:**
 ```SQL:
   SELECT City FROM Customers
   EXCEPT
