@@ -1,4 +1,4 @@
-# SQL
+# SQL (Structured Query Language)
 
 ## Types of SQL Commands
 **Data Query Language (DQL):**
