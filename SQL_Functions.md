@@ -48,11 +48,23 @@ TIMESTAMPDIFF(MINUTE, start_datetime, end_datetime) => minute duration between t
 
 STR_TO_DATE(string_column, "%Y-%m-%d %h:%i:%p") AS market_start_datetime => String to Date_Time Format
 
+# SQL AGGREGATE Functions (GROUP BY Clause)
+
+COUNT(\*), COUNT(1), COUNT(2), COUNT(999) => Gives total rows including NULL & Duplicate
+
+COUNT(column_name) => Gives total rows including Duplicate but excluding NULL
+
+COUNT(DISTINCT column_name) => Gives total rows excluding NULL & Duplicate
+
+SUM(n) => Gives (total rows including NULL & Duplicate) \* n
+
 # SQL WINDOW Functions
 
 SUM(salary) OVER(ORDER BY salary ASC) AS cumulative_salary
 
 SUM(sale) OVER(ORDER BY date ASC RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cumulative_sales 
+
+- Above two SQL statements are equvivalent to get cumulative SUM
 
 SUM(quantity \* cost_to_customer_per_qty) OVER(PARTITION BY customer_id ORDER BY market_date) AS customer_spend_running_total
 
