@@ -50,7 +50,7 @@ SELECT
 	sales_date,
 	sales_amount,
 	AVG(sales_amount) OVER(PARTITION BY product_id ORDER BY sales_date 
-	RANGE BETWEEN INTERVAL '30 days' PRECEDING AND CURRENT ROW) AS moving_avg_30days
+	                       RANGE BETWEEN INTERVAL '30 days' PRECEDING AND CURRENT ROW) AS moving_avg_30days
 FROM
 	sales;
 ```
@@ -65,4 +65,10 @@ GROUP BY
 	department
 HAVING
 	AVG(salary) > (SELECT AVG(salary) FROM employees);
+```
+
+**Q: How to create empty table with same structure as another table?**
+```SQL:
+CREATE TABLE new_table AS(
+SELECT * FROM source_table WHERE 1 = 0);
 ```
