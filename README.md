@@ -1,6 +1,6 @@
 # SQL
 
-# Order of execution
+## Order of execution
 - FROM, including JOINs
 - WHERE
 - GROUP BY
@@ -12,7 +12,7 @@
 - ORDER BY
 - LIMIT
 
-# Views vs CTEs
+## Views vs CTEs
 
 Although there are some differences between them, common table expressions and views seem to perform very similarly. So, when should you use each one?
 
@@ -20,7 +20,7 @@ Although there are some differences between them, common table expressions and v
 - **Frequently used queries:** If you tend to reference the same query often, creating a corresponding view is a good idea. However, you’ll need create view permission in your database to create a view.
 - **Access management:** A view might be used to restrict particular users’ database access while still allowing them to get the information they need. You can give users access to specific views that query the data they’re allowed to see without exposing the whole database. In such a case, a view provides an additional access layer.
 
-# Unions
+## Unions
 
 - Using a UNION, you can combine any two queries that result in the same number of columns with the same data types.
 - The columns must be in the same order in both queries.
