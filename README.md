@@ -162,3 +162,30 @@ Although there are some differences between them, common table expressions and v
   SELECT City FROM Suppliers
   ORDER BY City;
 ```
+
+## SQL types of Joins
+- JOIN combines data from two tables.
+- JOIN typically combines rows with equal values for the specified columns. Usually, one table contains a primary key, which is a column or columns that uniquely identify rows in the table. The other table has a column or columns that refer to the primary key columns in the first table. Such columns are foreign keys.
+- The JOIN condition doesn't have to be an equality – it can be any condition you want. JOIN doesn't interpret the JOIN condition, it only checks if the rows satisfy the given condition.
+- You can join more than two tables together. First, two tables are joined, then the third table is joined to the result of the previous joining.
+- You can use multiple JOIN conditions using the ON keyword once and the AND keywords as many times as you need.
+
+**LEFT JOIN:**
+- LEFT JOIN returns all rows from the left table with matching rows from the right table. Rows without a match are filled with NULLs. LEFT JOIN is also called LEFT OUTER JOIN.
+
+**RIGHT JOIN:**
+- RIGHT JOIN returns all rows from the right table with matching rows from the left table. Rows without a match are filled with NULLs. RIGHT JOIN is also called RIGHT OUTER JOIN.
+
+**FULL JOIN:**
+- FULL JOIN returns all rows from the left table and all rows from the right table. It fills the non-matching rows with NULLs. FULL JOIN is also called FULL OUTER JOIN.
+
+**CROSS JOIN:**
+- CROSS JOIN returns all possible combinations of rows from the left and right tables.
+
+## LIKE OPERATOR – PATTERN MATCHING
+- Use the _ character to identify any single character.
+- Use the % character to identify any number of characters (including 0 characters).
+
+## CASTING
+- It lets you change the type of value to almost anything (integer, numeric, double precision, varchar, and many more).
+- SELECT CAST(column_name AS DATA_TYPE);
