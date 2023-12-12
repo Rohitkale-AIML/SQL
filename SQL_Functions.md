@@ -12,9 +12,37 @@ SUBSTRING(column_name, 2, 3) => Extracting 3 letters from the 2nd position
 
 # SQL DATE Functions
 
-MONTH(date_column) => Gives month number
+DAY(date_column) OR EXTRACT(DAY FROM date_column) => Gives day number
 
-YEAR(date_column) => Gives year
+MONTH(date_column) OR EXTRACT(MONTH FROM date_column) => Gives month number 
+
+YEAR(date_column) OR EXTRACT(YEAR FROM date_column) => Gives year
+
+HOUR(date_time_column) OR EXTRACT(HOUR FROM date_column) => Gives hour of day
+
+MINUTE(date_time_column) OR EXTRACT(MINUTE FROM date_column) => Gives minute of time
+
+WEEKDAY(date_column) => Gives weekday number
+
+DAYNAME(date_column) => Gives dayname
+
+MONTHNAME(date_column) => Gives name of month
+
+DATE(date_time_column) => Extracting the entire date part
+
+TIME(date_time_column) => Extracting the entire time part
+
+DATE_ADD(date_time_column, INTERVAL 30 MINUTE) => Add 30 mins
+
+DATE_SUB(date_time_column, INTERVAL 15 DAY) => Subtract 15 days
+
+DATEDIFF('High_date', 'Low_date') => number of days difference betwen two dates
+
+TIMESTAMPDIFF(HOUR, start_datetime, end_datetime) => hour duration between two timestamps
+
+TIMESTAMPDIFF(MINUTE, start_datetime, end_datetime) => minute duration between two timestamps
+
+STR_TO_DATE(string_column, "%Y-%m-%d %h:%i:%p") AS market_start_datetime => String to Date_Time Format
 
 # SQL WINDOW Functions
 
