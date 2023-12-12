@@ -73,6 +73,11 @@
 - ROLLBACK
 - SAVEPOINT
 
+## Difference between Delete vs Drop vs Truncate?
+- DELETE is used to remove specific rows based on a condition and is a DML command.
+- DROP is used to remove an entire database object, such as a table, and is a DDL command.
+- TRUNCATE is used to remove all rows from a table and is also a DDL command, but it is faster than DELETE for removing all rows from a table.
+
 ## Order of execution
 - FROM, including JOINs
 - WHERE
@@ -230,4 +235,27 @@ Although there are some differences between them, common table expressions and v
      FROM city average_city
      WHERE average_city.country_id = main_city.country_id
     );
+```
+## What is Indexing and different type of indexes?
+- In SQL, indexing is a technique used to improve the performance of queries by creating data structures that allow for faster data retrieval.
+- Indexes are created on specific columns of a table, and they help the database engine locate the desired data more efficiently, reducing the need for full-table scans or searching through all records.
+- **Single-Column Index:** A single-column index is created on a single column of a table. It speeds up queries that involve conditions or sorting based on that particular column.
+```SQL:
+CREATE INDEX index_name ON table_name (column_name);
+```
+- **Composite Index (Multi-Column Index):** A composite index is created on multiple columns of a table. It is useful when queries involve conditions on multiple columns.
+```SQL:
+CREATE INDEX index_name ON table_name (column1, column2, ...);
+```
+- **Unique Index:** A unique index enforces the uniqueness of values in one or more columns of a table. It is often used to enforce the primary key or unique constraint.
+```SQL:
+CREATE UNIQUE INDEX index_name ON table_name (column_name);
+```
+- **Clustered Index:** In SQL Server, a clustered index determines the physical order of data in a table. Each table can have only one clustered index. In other database systems like MySQL, the primary key is used as the clustered index by default.
+```SQL:
+CREATE CLUSTERED INDEX index_name ON table_name (column_name);
+```
+- **Non-Clustered Index:** A non-clustered index is a separate data structure from the table that contains a sorted copy of the indexed column(s) and a reference to the actual row in the table. A table can have multiple non-clustered indexes.
+```SQL:
+CREATE INDEX index_name ON table_name (column_name);
 ```
