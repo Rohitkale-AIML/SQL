@@ -62,21 +62,16 @@ Although there are some differences between them, common table expressions and v
 - The columns must be in the same order in both queries.
 - There are many possible use cases for UNION queries, but the syntax is simple: write two queries with the same number and type of fields, and put a UNION keyword between them:
 - Let’s say you want to get all the cities from two different tables.
-
-SELECT City FROM Customers
-
-UNION
-
-SELECT City FROM Suppliers
-
-ORDER BY City;
-
+```SQL:
+  SELECT City FROM Customers
+  UNION
+  SELECT City FROM Suppliers
+  ORDER BY City;
+```
 **To retain the duplicate rows**
-
-SELECT City FROM Customers
-
-UNION ALL
-
-SELECT City FROM Suppliers
-
-ORDER BY City;
+```SQL:
+  SELECT City FROM Customers
+  UNION ALL
+  SELECT City FROM Suppliers
+  ORDER BY City;
+```
