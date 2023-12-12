@@ -1,5 +1,23 @@
 # SQL-Structured Query Language
 
+## Relations in Database
+**One-to-One Relationship:**
+- Each record in the first table is related to only one record in the second table, and vice versa.
+- Example: Person and Passport, where each person has one passport, and each passport is associated with one person.
+
+**One-to-Many Relationship:**
+- A record in the first table can be related to one or more records in the second table, but a record in the second table is related to only one record in the first table.
+- Example: Customer and Orders, where one customer can place multiple orders, but each order is associated with only one customer.
+
+**Many-to-One Relationship:**
+- Opposite of a one-to-many relationship; many records in the first table can be related to one record in the second table.
+- Example: Many employees (from different departments) report to one manager in a company.
+
+**Many-to-Many Relationship:**
+- Many records in the first table can be related to many records in the second table.
+- Requires a junction table to implement the relationship.
+- Example: Students and Courses, where each student can enroll in multiple courses, and each course can have multiple students.
+
 ## Types of SQL Commands
 **Data Query Language (DQL):**
 - SELECT
