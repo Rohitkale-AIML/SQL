@@ -20,7 +20,7 @@ We can answer questions like
 - How does a value in this row compare to a value in the prior row?
 - How does a value in the current row compare to the average value for its group?
 
-So, window functions return group aggregate calculations alongside individual row-level information for items in that group, or partition. 
+So, window functions **return group aggregate calculations alongside individual row-level information** for items in that group, or partition. 
 
 ## Views vs CTEs
 
