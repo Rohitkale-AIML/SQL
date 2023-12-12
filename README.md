@@ -1,5 +1,36 @@
 # SQL-Structured Query Language
 
+## Types of Keys in SQL
+**Primary Key:**
+- Unique identifier for a record in a table.
+- Ensures data integrity and enforces entity integrity.
+- Cannot contain NULL values.
+
+**Foreign Key:**
+- Column(s) that refer to the primary key in another table.
+- Establishes a link between tables, creating a relationship.
+- Ensures referential integrity.
+
+**Unique Key:**
+- Ensures that all values in a column or a set of columns are unique.
+- Allows NULL values except in cases where the column is also a primary key.
+
+**Candidate Key:**
+- A column or a set of columns that can qualify as a primary key.
+- Meets the criteria for being a key but is not chosen as the primary key.
+
+**Super Key:**
+- A set of one or more columns that, taken collectively, can uniquely identify a record in a table.
+- May include more columns than necessary to uniquely identify a record.
+
+**Composite Key:**
+- A primary key that consists of multiple columns.
+- Combines the values of those columns to create a unique identifier.
+
+**Alternate Key:**
+- A candidate key that is not selected as the primary key.
+- Provides an alternative unique identifier for a record.
+
 ## Relations in Database
 **One-to-One Relationship:**
 - Each record in the first table is related to only one record in the second table, and vice versa.
