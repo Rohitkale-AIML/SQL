@@ -1,6 +1,6 @@
 ## SQL STRING Functions
 
-> LENGTH(column_name) => Length of string
+-- LENGTH(column_name) => Length of string
 
 REPLACE(column_name, 'substr_to_replace', 'replace_by_str') => Replace substring with another string
 
