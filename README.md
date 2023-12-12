@@ -1,4 +1,4 @@
-# SQL (Structured Query Language)
+# SQL-Structured Query Language
 
 ## Types of SQL Commands
 **Data Query Language (DQL):**
@@ -36,7 +36,7 @@
 - ORDER BY
 - LIMIT
 
-# CASE Statement
+## CASE Statement
 ```SQL:
   SELECT 
     market_day,  
