@@ -190,3 +190,21 @@ Although there are some differences between them, common table expressions and v
 ## CASTING
 - It lets you change the type of value to almost anything (integer, numeric, double precision, varchar, and many more).
 - SELECT CAST(column_name AS DATA_TYPE);
+
+## SUBQUERIES
+- A subquery is a query that is nested inside another query, or inside another subquery
+**SINGLE VALUE SUBQUERY**
+- The simplest subquery returns exactly one column and exactly one row. It can be used with comparison operators =, <, <=, >, or >=.
+**MULTIPLE VALUES SUBQUERY**
+- A subquery can also return multiple columns or multiple rows. Such subqueries can be used with operators IN, EXISTS, ALL, or ANY.
+**CORRELATED SUBQUERY**
+- A correlated subquery refers to the tables introduced in the outer query. A correlated subquery depends on the outer query. It cannot be run independently from the outer query.
+```SQL:
+  SELECT *
+  FROM city main_city
+  WHERE population > (
+     SELECT AVG(population)
+     FROM city average_city
+     WHERE average_city.country_id = main_city.country_id
+    );
+```
