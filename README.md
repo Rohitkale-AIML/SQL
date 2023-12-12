@@ -1,16 +1,16 @@
 # SQL
 
 # Order of execution
-• FROM, including JOINs
-• WHERE
-• GROUP BY
-• HAVING
-• WINDOW functions
-• SELECT
-• DISTINCT
-• UNION
-• ORDER BY
-• LIMIT
+- FROM, including JOINs
+- WHERE
+- GROUP BY
+- HAVING
+- WINDOW functions
+- SELECT
+- DISTINCT
+- UNION
+- ORDER BY
+- LIMIT
 
 # Views vs CTEs
 
