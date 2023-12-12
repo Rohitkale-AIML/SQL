@@ -193,10 +193,13 @@ Although there are some differences between them, common table expressions and v
 
 ## SUBQUERIES
 - A subquery is a query that is nested inside another query, or inside another subquery
+
 **SINGLE VALUE SUBQUERY**
 - The simplest subquery returns exactly one column and exactly one row. It can be used with comparison operators =, <, <=, >, or >=.
+
 **MULTIPLE VALUES SUBQUERY**
 - A subquery can also return multiple columns or multiple rows. Such subqueries can be used with operators IN, EXISTS, ALL, or ANY.
+
 **CORRELATED SUBQUERY**
 - A correlated subquery refers to the tables introduced in the outer query. A correlated subquery depends on the outer query. It cannot be run independently from the outer query.
 ```SQL:
