@@ -12,6 +12,16 @@
 - ORDER BY
 - LIMIT
 
+## Window Functions
+Window fns give the ability to put the values from one row of data into context compared to a group of rows, or partition.
+
+We can answer questions like
+- If the dataset were sorted, where would this row land in the results?
+- How does a value in this row compare to a value in the prior row?
+- How does a value in the current row compare to the average value for its group?
+
+So, window functions return group aggregate calculations alongside individual row-level information for items in that group, or partition. 
+
 ## Views vs CTEs
 
 Although there are some differences between them, common table expressions and views seem to perform very similarly. So, when should you use each one?
