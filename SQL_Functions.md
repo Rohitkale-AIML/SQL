@@ -154,11 +154,11 @@ NTILE(10) OVER(ORDER BY original_price DESC) AS price_ntile
 
 **Write a query to extract all the transactions that are made between the dates 2019- 04-24' and '2019-05-24' using user defined parameters "start_date" and "end_date"**
 ```SQL:
-	SET @start_date := '2019-04-24';
-	SET @end_date := '2019-05-24';
+SET @start_date := '2019-04-24';
+SET @end_date := '2019-05-24';
 
-	SELECT \* 
-	FROM customer_purchases
-	WHERE market_date BETWEEN @start_date AND @end_date
-	ORDER BY market_date;
+SELECT \* 
+FROM customer_purchases
+WHERE market_date BETWEEN @start_date AND @end_date
+ORDER BY market_date;
 ```
