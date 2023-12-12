@@ -124,6 +124,26 @@ So, window functions **return group aggregate calculations alongside individual 
 
 ## Views vs CTEs
 
+**Common Table Expression (CTE):**
+- A CTE is a temporary result set that is defined within the scope of a single SQL query.
+- It is typically used to simplify complex queries, break them down into smaller, more manageable parts, and make the code more readable.
+- CTEs are defined using the WITH keyword, followed by the CTE name and the query that defines the result set.
+- CTEs are only visible to the query in which they are defined. They cannot be referenced by other queries or stored in the database like views.
+- CTEs are usually more performant than views for certain scenarios since they are materialized and optimized within the scope of the main query.
+
+**Views:**
+- A view is a virtual table created by saving the result set of a SELECT query in the database. 
+- It is a named object that stores the query definition and can be treated like a regular table in subsequent queries.
+- Views are used to simplify data access by providing an additional level of abstraction. They hide the underlying complexity of the database schema and can present a specific subset of data to users without revealing the actual table structure.
+- Views are stored in the database and can be referenced by multiple queries from different parts of the application.
+- Views can be more efficient for certain scenarios where the query results are frequently reused since they are precomputed and stored in the database.
+
+**Types of Views:**
+- **Simple View:** A simple view is based on a single table and contains a SELECT statement. It may include only specific columns from the table and can have filtering conditions (WHERE clause).
+- **Complex View:** A complex view is based on multiple tables or other views. It can include JOINs and aggregate functions, providing a consolidated and structured view of data from different tables.
+- **Indexed View (Materialized View):** Some database systems support indexed views, which are views that have an associated index. The index improves the performance of queries that directly match the view's SELECT statement.
+- **Partitioned View:** A partitioned view is used to partition a large table horizontally into smaller, manageable pieces based on some criteria.
+
 Although there are some differences between them, common table expressions and views seem to perform very similarly. So, when should you use each one?
 
 - **Ad-hoc queries:** For queries that are referenced occasionally (or just once), it’s usually better to use a CTE. If you need the query again, you can just copy the CTE and modify it if necessary.
