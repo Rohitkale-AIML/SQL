@@ -1,6 +1,6 @@
 # SQL
 
-# Types of SQL Commands
+## Types of SQL Commands
 **Data Query Language (DQL):**
 - SELECT
 
