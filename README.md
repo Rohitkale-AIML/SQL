@@ -50,25 +50,25 @@
 - Example: Students and Courses, where each student can enroll in multiple courses, and each course can have multiple students.
 
 ## Types of SQL Commands
-**Data Query Language (DQL):**
+**Data Query Language (DQL) (retrieve data from the DB using SQL queries):**
 - SELECT
 
-**Data Definition Language (DDL):**
+**Data Definition Language (DDL) (define database schema in DBMS):**
 - CREATE
 - ALTER
 - DROP
 - TRUNCATE
   
-**Data Manipulation Language (DML):**
+**Data Manipulation Language (DML) (manipulate data present in the DB):**
 - INSERT
 - UPDATE
 - DELETE
   
-**Data Control Language (DCL):**
+**Data Control Language (DCL)  (deals with access rights and data control on the data present in the db):**
 - GRANT
 - REVOKE
   
-**Transaction Control Language (TCL):**
+**Transaction Control Language (TCL)  (deals with the transactions happening in the DB):**
 - COMMIT
 - ROLLBACK
 - SAVEPOINT
