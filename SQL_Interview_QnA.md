@@ -50,7 +50,7 @@
 		sales_date,
 		sales_amount,
 		AVG(sales_amount) OVER(PARTITION BY product_id ORDER BY sales_date
-							   RANGE BETWEEN INTERVAL '30 days' PRECEDING AND CURRENT ROW) AS moving_avg_30days
+                                       RANGE BETWEEN INTERVAL '30 days' PRECEDING AND CURRENT ROW) AS moving_avg_30days
 	FROM
 		sales;
 ```
