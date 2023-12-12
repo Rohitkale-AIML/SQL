@@ -2,19 +2,23 @@
 
 # Types of SQL Commands
 **Data Query Language (DQL):**
-SELECT
+- SELECT
+
 **Data Definition Language (DDL):**
 - CREATE
 - ALTER
 - DROP
 - TRUNCATE
+  
 **Data Manipulation Language (DML):**
 - INSERT
 - UPDATE
 - DELETE
+  
 **Data Control Language (DCL):**
 - GRANT
 - REVOKE
+  
 **Transaction Control Language (TCL):**
 - COMMIT
 - ROLLBACK
