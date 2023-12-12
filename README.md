@@ -77,6 +77,7 @@
 - FROM, including JOINs
 - WHERE
 - GROUP BY
+- AGGREGATE functions
 - HAVING
 - WINDOW functions
 - SELECT
