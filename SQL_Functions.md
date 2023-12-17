@@ -93,7 +93,7 @@ SELECT SQRT(9);
 
 ## SQL AGGREGATE Functions (GROUP BY Clause)
 
-COUNT(\*), COUNT(1), COUNT(2), COUNT(999) => Gives total rows including NULL & Duplicate
+COUNT(\*), COUNT(1), COUNT(2), COUNT(999), COUNT('xyz') => Gives total rows including NULL & Duplicate
 
 COUNT(column_name) => Gives total rows including Duplicate but excluding NULL
 
