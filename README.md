@@ -1,4 +1,16 @@
 # SQL-Structured Query Language
+## Data:
+- Collection of facts and information
+- structured like tabular format, excel
+- unstructured like image, audio, video
+- semi-structured like JSON, XML
+
+## Database:
+- It is a place where data is stored in an organized manner
+
+## DBMS:
+- It is a tool/software that allows one to access, interact with, and manipulate a database
+- RDBMS use SQL to communicate with database
 
 ## Types of Keys in SQL
 **Primary Key:**
