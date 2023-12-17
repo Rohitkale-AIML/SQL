@@ -72,3 +72,48 @@ HAVING
 CREATE TABLE new_table AS(
 SELECT * FROM source_table WHERE 1 = 0);
 ```
+
+**Q: Identify how many cars, Motorcycles, trains and ships are available in the inventory? Treat all type of cars as just "Cars"**
+```SQL:
+-- Solution 1:
+SELECT product_line, count(1)
+FROM (
+        SELECT CASE WHEN product_line IN ('Classic Cars', 'Vintage Cars') THEN 'Cars'
+                    ELSE product_line
+               END AS product_line
+        FROM products
+        WHERE product_line IN ('Classic Cars', 'Vintage Cars', 'Motorcycles', 'Trains', 'Ships')
+    )
+GROUP BY product_line;
+
+
+-- Solution 2:
+SELECT CASE WHEN product_line IN ('Classic Cars', 'Vintage Cars') THEN 'Cars'
+            ELSE product_line
+       END AS product_line
+, count(1)
+FROM products
+WHERE product_line IN ('Classic Cars', 'Vintage Cars', 'Motorcycles', 'Trains', 'Ships')
+GROUP BY CASE WHEN product_line IN ('Classic Cars', 'Vintage Cars') THEN 'Cars'
+              ELSE product_line
+         END ;
+
+SELECT CASE WHEN product_line IN ('Classic Cars', 'Vintage Cars') THEN 'Cars'
+            ELSE product_line
+       END AS new_product_line
+, count(1)
+FROM products
+WHERE product_line IN ('Classic Cars', 'Vintage Cars', 'Motorcycles', 'Trains', 'Ships')
+GROUP BY new_product_line;
+
+
+-- Solution 3:
+SELECT product_line, count(1)
+FROM products
+WHERE product_line in ('Motorcycles', 'Trains', 'Ships')
+GROUP BY product_line
+UNION
+SELECT 'Cars' as prod, count(1)
+FROM products
+WHERE product_line IN ('Classic Cars', 'Vintage Cars');
+```
