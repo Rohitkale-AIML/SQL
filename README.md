@@ -12,6 +12,36 @@
 - It is a tool/software that allows one to access, interact with, and manipulate a database
 - RDBMS use SQL to communicate with database
 
+## Types of SQL Commands
+**Data Query Language (DQL) (retrieve data from the DB using SQL queries):**
+- SELECT
+
+**Data Definition Language (DDL) (define database schema in DBMS):**
+- CREATE
+- ALTER
+- DROP
+- TRUNCATE
+  
+**Data Manipulation Language (DML) (manipulate data present in the DB):**
+- INSERT
+- UPDATE
+- DELETE
+- MERGE
+  
+**Data Control Language (DCL)  (deals with access rights and data control on the data present in the db):**
+- GRANT
+- REVOKE
+  
+**Transaction Control Language (TCL)  (deals with the transactions happening in the DB):**
+- COMMIT
+- ROLLBACK
+- SAVEPOINT
+
+## Difference between Delete vs Drop vs Truncate?
+- DELETE is used to remove specific rows based on a condition and is a DML command.
+- DROP is used to remove an entire database object, such as a table, and is a DDL command.
+- TRUNCATE is used to remove all rows from a table and is also a DDL command, but it is faster than DELETE for removing all rows from a table.
+
 ## Types of Keys in SQL
 **Primary Key:**
 - Unique identifier for a record in a table.
@@ -60,36 +90,6 @@
 - Many records in the first table can be related to many records in the second table.
 - Requires a junction table to implement the relationship.
 - Example: Students and Courses, where each student can enroll in multiple courses, and each course can have multiple students.
-
-## Types of SQL Commands
-**Data Query Language (DQL) (retrieve data from the DB using SQL queries):**
-- SELECT
-
-**Data Definition Language (DDL) (define database schema in DBMS):**
-- CREATE
-- ALTER
-- DROP
-- TRUNCATE
-  
-**Data Manipulation Language (DML) (manipulate data present in the DB):**
-- INSERT
-- UPDATE
-- DELETE
-- MERGE
-  
-**Data Control Language (DCL)  (deals with access rights and data control on the data present in the db):**
-- GRANT
-- REVOKE
-  
-**Transaction Control Language (TCL)  (deals with the transactions happening in the DB):**
-- COMMIT
-- ROLLBACK
-- SAVEPOINT
-
-## Difference between Delete vs Drop vs Truncate?
-- DELETE is used to remove specific rows based on a condition and is a DML command.
-- DROP is used to remove an entire database object, such as a table, and is a DDL command.
-- TRUNCATE is used to remove all rows from a table and is also a DDL command, but it is faster than DELETE for removing all rows from a table.
 
 ## Order of execution
 - FROM, including JOINs
