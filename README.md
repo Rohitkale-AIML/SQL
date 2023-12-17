@@ -129,6 +129,17 @@
   FROM 
     farmers_market.customer_purchases
 ```
+## Rules for Group by
+1. column list in GROUP by and SELECT should match
+2. Any additional column in select clause must be within the aggregate functions
+3. select clause only has aggregate functions
+4. group by columns should either be present in select clause as standalone columns or within the aggregate functions
+```SQL:
+SELECT product_line, count(1)
+FROM products
+GROUP BY product_code;
+-- product_code is primary key so this will work as per point 4
+```
 
 ## Window Functions
 Window fns give the ability to put the values from one row of data into context compared to a group of rows, or partition.
