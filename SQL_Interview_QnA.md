@@ -172,3 +172,18 @@ WHERE id IN (
 	     ON L.id > R.id
 		AND L.first_name = R.first_name
 		AND L.last_name = R.last_name);
+```
+
+**Q: Find how much each artist made from sales. And how many paintings did they sell?**
+```SQL:
+SELECT
+	s.artist_id, 
+	CONCAT(a.first_name, ' ',a.last_name) AS artist_name, 
+	count(painting_id) AS painitngs_sold, 
+	sum(sales_price) AS total_earnings
+FROM sales AS s
+INNER JOIN (SELECT id, first_name, last_name FROM artists) a --efficient way of join with required columns only
+ON s.artist_id = a.id
+GROUP BY s.artist_id, a.first_name, a.last_name
+ORDER BY s.artist_id;
+```
