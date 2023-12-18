@@ -542,3 +542,31 @@ FROM crosstab(' SELECT employeename, year, MAX(totalpay) AS max_payment
 ```
 
 ![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/pivot_table_result.png?raw=true)
+
+**RECURSIVE SQL QUERIES**
+```SQL:
+-- Syntax:
+
+WITH RECURSIVE cte AS
+    (base query -- the starting point
+     UNION / UNION ALL
+     recursive part of the query -- which use the result from cte
+     include a termination condition
+    )
+SELECT *
+FROM cte;
+```
+
+**Q1: Display number from 1 to 10 without using any in built functions.**
+```SQL:
+WITH RECURSIVE cte AS
+    (SELECT 1 AS n
+     UNION
+     SELECT (n + 1) AS n
+     FROM cte
+     WHERE n < 10)
+SELECT *
+FROM cte;
+```
+
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/recursive.png?raw=true)
