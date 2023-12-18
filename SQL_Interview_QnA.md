@@ -399,3 +399,54 @@ INNER JOIN google_gmail_labels L
 WHERE L.label IN ('Promotion', 'Social', 'Shopping')
 group by to_user;
 ```
+
+**Q: Find the date with the highest total energy consumption from the Meta/Facebook data centers. Output the date along with the total energy consumption across all data centers. If there are multiple days with same highest energy consumption then display both dates.**
+```SQL:
+SELECT * FROM fb_eu_energy;
+```
+![sample_image]()
+
+```SQL:
+SELECT * FROM fb_asia_energy;
+```
+![sample_image]()
+
+```SQL:
+SELECT * FROM fb_na_energy;
+```
+![sample_image]()
+
+```SQL:
+-- SOLUTION 01
+WITH all_energy AS
+        (SELECT * FROM fb_eu_energy
+        UNION ALL
+        SELECT * FROM fb_asia_energy
+        UNION ALL
+        SELECT * FROM fb_na_energy),
+    agg_energy AS
+        (SELECT date, SUM(consumption) AS tot_consumption
+         FROM all_energy
+         GROUP BY date),
+    cte AS
+        (SELECT *, RANK() OVER(ORDER BY tot_consumption DESC) AS rnk
+         FROM agg_energy)
+SELECT date, tot_consumption
+FROM cte
+WHERE rnk = 1;
+
+-- SOLUTION 02
+SELECT * FROM (
+    SELECT *, RANK() OVER(ORDER BY tot_consumption DESC) AS rnk
+    FROM (SELECT date, SUM(consumption) AS tot_consumption
+          FROM (SELECT * FROM fb_eu_energy
+                UNION ALL
+                SELECT * FROM fb_asia_energy
+                UNION ALL
+                SELECT * FROM fb_na_energy)X
+          GROUP BY date)Y
+) xx
+WHERE rnk = 1;
+```
+
+![sample_image]()
