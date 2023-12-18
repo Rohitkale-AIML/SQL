@@ -330,7 +330,7 @@ AND Y04.year_id = 2004;
 SELECT * FROM facebook_friends;
 ```
 
-![sample_image]([img_url](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/facebook_friends.png?raw=true))
+![facebook_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/facebook_friends.png?raw=true)
 
 -- a) Find how many friends each user has? 
 
