@@ -456,7 +456,7 @@ WHERE rnk = 1;
 SELECT * FROM students;
 ```
 
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/students.png?raw=true)
 
 ```SQL:
 SELECT id, 
@@ -466,4 +466,4 @@ SELECT id,
 FROM students ;
 ```
 
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/students_result.png?raw=true)
