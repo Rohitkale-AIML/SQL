@@ -511,3 +511,34 @@ FROM product;
 ```
 
 ![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/products_result.png?raw=true)
+
+**Q: Make a pivot table to find the highest payment in each year for each employee. Output payment details along with the corresponding employee name.**
+```SQL:
+SELECT * FROM sf_public_salaries
+```
+
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/pivot_table.png?raw=true)
+
+```SQL:
+-- syntax for crosstab
+SELECT *
+FROM CROSSTAB('base query', 'list of columns ') -- second argument is optional
+     AS RESULT (column_name1 data_type, ...);
+	 
+-- Solution:
+CREATE EXTENSION tablefunc; -- crosstab is part of this extension..
+
+SELECT EMPLOYEENAME, 
+       COALESCE(PAY_2011, 0) AS PAY_2011, 
+	   COALESCE(PAY_2012, 0) AS PAY_2012, 
+	   COALESCE(PAY_2013, 0) AS PAY_2013, 
+	   COALESCE(PAY_2014, 0) AS PAY_2014
+FROM crosstab(' SELECT employeename, year, MAX(totalpay) AS max_payment
+                FROM sf_public_salaries
+                GROUP BY employeename, year
+                ORDER BY employeename, year '
+             , 'SELECT DISTINCT year FROM sf_public_salaries')
+    AS RESULT (employeename VARCHAR, PAY_2011 FLOAT, PAY_2012 FLOAT, PAY_2013 FLOAT, PAY_2014 FLOAT ); 
+```
+
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/pivot_table_result.png?raw=true)
