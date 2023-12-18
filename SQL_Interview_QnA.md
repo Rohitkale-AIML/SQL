@@ -380,13 +380,13 @@ ORDER BY 1;
 select * from google_gmail_emails;
 ```
 
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/ggoogle_gmail_emails.png?raw=true)
 
 ```SQL:
 select * from google_gmail_labels;
 ```
 
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/google_gmail_labels.png?raw=true)
 
 ```SQL:
 SELECT to_user, 
