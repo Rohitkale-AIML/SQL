@@ -151,6 +151,11 @@ We can answer questions like
 
 So, window functions **return group aggregate calculations alongside individual row-level information** for items in that group, or partition. 
 
+**Order of execution for window function:**
+1. Partition by
+2. Order by
+3. window funciton itself
+
 ## Views vs CTEs
 
 **Common Table Expression (CTE):**
