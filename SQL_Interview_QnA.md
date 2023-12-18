@@ -374,3 +374,28 @@ FROM user_frnds a
 CROSS JOIN unq_users b -- JOIN M RECORDS WITH 1 RECORDS
 ORDER BY 1;
 ```
+
+**Q:Find the number of emails received by each user under each built-in email label. The email labels are: 'Promotion', 'Social', and 'Shopping'. Output the user along with the number of promotion, social, and shopping mails count**
+```SQL:
+select * from google_gmail_emails;
+```
+
+![sample_image]()
+
+```SQL:
+select * from google_gmail_labels;
+```
+
+![sample_image]()
+
+```SQL:
+SELECT to_user, 
+       SUM(CASE WHEN label = 'Promotion' THEN 1 ELSE 0 END) AS Promotion, 
+       SUM(CASE WHEN label = 'Social' THEN 1 ELSE 0 END) AS Social, 
+       SUM(CASE WHEN label = 'Shopping' THEN 1 ELSE 0 END) AS Shopping
+FROM google_gmail_emails AS E
+INNER JOIN google_gmail_labels L 
+       ON L.email_id = E.id
+WHERE L.label IN ('Promotion', 'Social', 'Shopping')
+group by to_user;
+```
