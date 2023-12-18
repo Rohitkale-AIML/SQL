@@ -404,17 +404,17 @@ group by to_user;
 ```SQL:
 SELECT * FROM fb_eu_energy;
 ```
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/fb_eu_energy.png?raw=true)
 
 ```SQL:
 SELECT * FROM fb_asia_energy;
 ```
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/fb_asia_energy.png?raw=true)
 
 ```SQL:
 SELECT * FROM fb_na_energy;
 ```
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/fb_na_energy.png?raw=true)
 
 ```SQL:
 -- SOLUTION 01
@@ -449,4 +449,4 @@ SELECT * FROM (
 WHERE rnk = 1;
 ```
 
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/total_consumption_solu.png?raw=true)
