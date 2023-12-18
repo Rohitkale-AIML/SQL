@@ -287,6 +287,8 @@ SELECT *
 FROM table_1 t1
 CROSS JOIN table_2 t2;
 
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/cross_join.png?raw=true)
+
 -- non ANSI way
 SELECT *
 FROM table_1 t1, table_2 t2;
