@@ -450,3 +450,20 @@ WHERE rnk = 1;
 ```
 
 ![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/total_consumption_solu.png?raw=true)
+
+**Q: From the students table, write a SQL query to interchange the adjacent student names. Note: If there are no adjacent student then the student name should stay the same.**
+```SQL:
+SELECT * FROM students;
+```
+
+![sample_image]()
+
+```SQL:
+SELECT id, 
+       CASE WHEN id%2 <> 0 THEN LEAD(student_name,1,student_name) OVER(ORDER BY id)
+            WHEN id%2 = 0 THEN LAG(student_name, 1, 'NO RECORD FOUND') OVER(ORDER BY id)
+       END AS new_student_name
+FROM students ;
+```
+
+![sample_image]()
