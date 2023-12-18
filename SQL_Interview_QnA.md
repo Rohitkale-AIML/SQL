@@ -329,10 +329,15 @@ AND Y04.year_id = 2004;
 ```SQL:
 SELECT * FROM facebook_friends;
 ```
+
 ![sample_image](img_url)
+
 -- a) Find how many friends each user has? 
+
 -- b) Find total users in FB
+
 -- c) Find PP = a / b
+
 ```SQL:
 -- b)
 SELECT user1 FROM facebook_friends
