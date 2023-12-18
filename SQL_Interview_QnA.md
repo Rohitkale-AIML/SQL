@@ -117,3 +117,58 @@ SELECT 'Cars' as prod, count(1)
 FROM products
 WHERE product_line IN ('Classic Cars', 'Vintage Cars');
 ```
+
+**Q: Write a query to identify the duplicate records?**
+```SQL:
+SELECT first_name, last_name, count(1)
+FROM artists
+GROUP BY first_name, last_name
+HAVING count(1) > 1;
+```
+
+**Q:How would you delete the duplicate records in a table?**
+```SQL:
+-- in PostgreSQL
+SELECT a.*, a.ctid FROM artists a;
+-- ctid works like row number
+
+-- If single duplicate records present
+DELETE FROM artists
+WHERE ctid IN (
+               SELECT MAX(ctid)
+               FROM artists
+               GROUP BY first_name, last_name
+               HAVING count(1) > 1);
+
+-- If multiple duplicate records present
+DELETE FROM artists
+WHERE ctid NOT IN (
+                   SELECT MIN(ctid)
+                   FROM artists
+                   GROUP BY first_name, last_name);
+
+-- If the table already has a unique column (like id in this case)
+DELETE FROM artists
+WHERE id NOT IN (
+                 SELECT MIN(id)
+                 FROM artists
+                 GROUP BY first_name, last_name);
+
+-- Using window function
+DELETE FROM artists
+WHERE id IN ( SELECT id 
+              FROM (
+                     SELECT *,
+                            ROW_NUMBER() OVER(PARTITION BY first_name, last_name )  AS rn
+                     FROM artists) x
+              WHERE rn > 1);
+
+-- In MySQL:
+-- Using self join
+DELETE FROM artists
+WHERE id IN (
+             SELECT L.id FROM artists AS L
+	     INNER JOIN artists AS R
+	     ON L.id > R.id
+		AND L.first_name = R.first_name
+		AND L.last_name = R.last_name);
