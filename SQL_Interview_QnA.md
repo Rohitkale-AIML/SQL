@@ -570,3 +570,19 @@ FROM cte;
 ```
 
 ![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/recursive.png?raw=true)
+
+**Q: Write a query to segregate all the expensive phones, mid range phones and the cheaper phones.**
+```SQL:
+SELECT x.product_name,
+	   CASE WHEN x.buckets = 1 THEN 'Expensive Phones'
+		    WHEN x.buckets = 2 THEN 'Mid Range Phones'
+		    WHEN x.buckets = 3 THEN 'Cheaper Phones' 
+	   END AS Phone_Category
+FROM (
+    SELECT *,
+    NTILE(3) OVER(ORDER BY price DESC) AS buckets
+    FROM product
+    WHERE product_category = 'Phone') x;
+```
+
+![SAMPLE_IMAGE](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/NTILE.png?raw=true)
