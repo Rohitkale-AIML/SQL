@@ -20,6 +20,17 @@ WHERE
 	rnk <= 5;
 ```
 
+**Q: Write a query to retrieve 3rd highest salary without window function**
+```SQL:
+SELECT DISTINCT Salary
+FROM Employee e1
+WHERE 3 = (
+    SELECT COUNT(DISTINCT Salary)
+    FROM Employee e2
+    WHERE e2.Salary >= e1.Salary
+);
+```
+
 **Q: List the products that have been sold in all cities where the company operates**
 ```SQL:
 SELECT
