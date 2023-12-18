@@ -225,6 +225,17 @@ Although there are some differences between them, common table expressions and v
 - You can join more than two tables together. First, two tables are joined, then the third table is joined to the result of the previous joining.
 - You can use multiple JOIN conditions using the ON keyword once and the AND keywords as many times as you need.
 
+```SQL:
+SELECT * FROM table_1;
+```
+![sample_image] ()
+
+```SQL:
+SELECT * FROM table_2;
+```
+
+![sample_image] ()
+
 **INNER JOIN:**
 - JOIN (or explicitly INNER JOIN) returns rows that have matching values in both tables.
 
@@ -234,7 +245,7 @@ FROM table_1 t1
 INNER JOIN table_2 t2 ON t1.id = t2.id;
 ```
 
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/inner_join.png?raw=true)
 
 **LEFT JOIN:**
 - LEFT JOIN returns all rows from the left table with matching rows from the right table. Rows without a match are filled with NULLs. LEFT JOIN is also called LEFT OUTER JOIN.
@@ -245,7 +256,7 @@ FROM table_1 t1
 LEFT JOIN table_2 t2 ON t1.id = t2.id;
 ```
 
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/left_join.png?raw=true)
 
 **RIGHT JOIN:**
 - RIGHT JOIN returns all rows from the right table with matching rows from the left table. Rows without a match are filled with NULLs. RIGHT JOIN is also called RIGHT OUTER JOIN.
@@ -256,7 +267,7 @@ FROM table_1 t1
 RIGHT JOIN table_2 t2 ON t1.id = t2.id;
 ```
 
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/right_join.png?raw=true)
 
 **FULL JOIN:**
 - FULL JOIN returns all rows from the left table and all rows from the right table. It fills the non-matching rows with NULLs. FULL JOIN is also called FULL OUTER JOIN.
@@ -267,7 +278,7 @@ FROM table_1 t1
 FULL JOIN table_2 t2 ON t1.id = t2.id;
 ```
 
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/full_join.png?raw=true)
 
 **CROSS JOIN:**
 - CROSS JOIN returns all possible combinations of rows from the left and right tables.
@@ -281,50 +292,6 @@ SELECT *
 FROM table_1 t1, table_2 t2;
 ```
 
-id	id-2
-1	1
-1	1
-1	2
-1	2
-1	4
-1	NULL
-1	1
-1	1
-1	2
-1	2
-1	4
-1	NULL
-1	1
-1	1
-1	2
-1	2
-1	4
-1	NULL
-2	1
-2	1
-2	2
-2	2
-2	4
-2	NULL
-3	1
-3	1
-3	2
-3	2
-3	4
-3	NULL
-3	1
-3	1
-3	2
-3	2
-3	4
-3	NULL
-3	1
-3	1
-3	2
-3	2
-3	4
-3	NULL
-
 **NATURAL JOIN:**
 - NATURAL JOIN will join tables by all columns with the same name and same data type.
 - If some other columns with same name exist then it will mess with logic of joining tables.
@@ -334,7 +301,7 @@ FROM table_1 t1
 NATURAL JOIN table_2 t2;
 ```
 
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/natural_join.png?raw=true)
 
 ## LIKE OPERATOR – PATTERN MATCHING
 - Use the _ character to identify any single character.
