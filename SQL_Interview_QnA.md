@@ -324,3 +324,48 @@ INNER JOIN cte AS Y04
 WHERE Y03.year_id = 2003
 AND Y04.year_id = 2004;
 ```
+
+**Q: Find the popularity percentage for each user on Meta/Facebook. The popularity percentage is defined as the total number of friends the user has divided by the total number of users on the platform, then converted into a percentage by multiplying by 100. Output each user along with their popularity percentage. Order records in ascending order by user id.**
+```SQL:
+SELECT * FROM facebook_friends;
+```
+![sample_image](img_url)
+-- a) Find how many friends each user has? 
+-- b) Find total users in FB
+-- c) Find PP = a / b
+```SQL:
+-- b)
+SELECT user1 FROM facebook_friends
+UNION
+SELECT user2 FROM facebook_friends
+```
+```sql:
+-- a)
+WITH all_users AS
+    (SELECT user1 AS users FROM facebook_friends
+     UNION ALL
+     SELECT user2 AS users FROM facebook_friends)
+SELECT users, COUNT(1) AS no_of_frnds
+FROM all_users
+GROUP BY users
+ORDER BY 1;
+```
+```sql:
+-- c)
+WITH all_users AS
+        (SELECT user1 AS users FROM facebook_friends
+         UNION ALL
+         SELECT user2 AS users FROM facebook_friends),
+     user_frnds AS
+        (SELECT users, COUNT(1) AS no_of_frnds
+         FROM all_users
+         GROUP BY users),
+     unq_users AS
+        (SELECT COUNT(DISTINCT users) AS total_users
+         FROM all_users) -- THIS HAS ONLY 1 RECORD
+SELECT a.users,
+ROUND(((a.no_of_frnds::DECIMAL / b.total_users::DECIMAL) * 100),2) AS popularity_percentage
+FROM user_frnds a
+CROSS JOIN unq_users b -- JOIN M RECORDS WITH 1 RECORDS
+ORDER BY 1;
+```
