@@ -206,4 +206,55 @@ LEFT JOIN (SELECT artist_id, COUNT(*) AS no_of_paintings
            FROM sales 
            GROUP BY artist_id) x 
      ON x.artist_id = a.id;
+
+-- common table expression
+WITH cte AS
+	(SELECT p.id AS painting_id,
+                a.id AS artist_id,
+                p.name AS painting_name,
+                CONCAT(a.first_name, ' ', a.last_name) AS artist_name
+	FROM paintings p
+	LEFT JOIN artists a
+             ON a.id = p.artist_id
+	UNION
+	SELECT p.id AS painting_id,
+               a.id AS artist_id,
+               p.name AS painting_name,
+               concat(a.first_name, ' ', a.last_name) AS artist_name
+	from paintings p
+	RIGHT JOIN artists a
+              ON a.id = p.artist_id)
+SELECT painting_name,
+       CONCAT(cte.artist_name, CASE WHEN x.no_of_paintings > 1 THEN ' **' END ) AS artist_name,
+       CASE WHEN s.id IS NOT NULL THEN 'SOLD' END AS sold_or_not
+FROM cte
+LEFT JOIN sales s
+     ON s.painting_id = cte.painting_id
+LEFT JOIN (SELECT artist_id, count(*) AS no_of_paintings
+           FROM sales
+           GROUP BY artist_id) x
+     ON x.artist_id = cte.artist_id;
+```
+
+**Q: Generate the following two result sets:**
+1. Query an alphabetically ordered list of all names in OCCUPATIONS, immediately followed by the first letter of each profession as a parenthetical (i.e.: enclosed in parentheses). For example: AnActorName(A), ADoctorName(D), AProfessorName(P), and ASingerName(S).
+
+2. Query the number of ocurrences of each occupation in OCCUPATIONS. Sort the occurrences in ascending order, and output them in the following format: There are a total of [occupation_count] [occupation]s.
+
+where [occupation_count] is the number of occurrences of an occupation in OCCUPATIONS and [occupation] is the lowercase occupation name. If more than one Occupation has the same [occupation_count], they should be ordered alphabetically.
+```SQL:
+(SELECT
+    CONCAT(name, '(', UPPER(LEFT(occupation,1)), ')') AS title
+FROM
+    occupations    
+)
+UNION
+(SELECT
+    CONCAT('There are a total of ', COUNT(1), ' ', LOWER(occupation), 's.') AS title
+FROM 
+    occupations
+GROUP BY
+    occupation
+)
+ORDER BY 1
 ```
