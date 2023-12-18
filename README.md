@@ -228,13 +228,13 @@ Although there are some differences between them, common table expressions and v
 ```SQL:
 SELECT * FROM table_1;
 ```
-![sample_image] (https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/table1.png?raw=true)
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/table1.png?raw=true)
 
 ```SQL:
 SELECT * FROM table_2;
 ```
 
-![sample_image] (https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/table2.png?raw=true)
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/table2.png?raw=true)
 
 **INNER JOIN:**
 - JOIN (or explicitly INNER JOIN) returns rows that have matching values in both tables.
