@@ -237,7 +237,7 @@ LEFT JOIN (SELECT artist_id, count(*) AS no_of_paintings
 ```
 
 **Q: Generate the following two result sets:**
-1. Query an alphabetically ordered list of all names in OCCUPATIONS, immediately followed by the first letter of each profession as a parenthetical (i.e.: enclosed in parentheses). For example: AnActorName(A), ADoctorName(D), AProfessorName(P), and ASingerName(S).
+1. Query an alphabetically ordered list of all names in OCCUPATIONS, immediately followed by the first letter of each profession as a parenthetical (i.e.: enclosed in parentheses). For example: An ActorName(A), A DoctorName(D), A ProfessorName(P), and A SingerName(S).
 
 2. Query the number of ocurrences of each occupation in OCCUPATIONS. Sort the occurrences in ascending order, and output them in the following format: There are a total of [occupation_count] [occupation]s.
 
