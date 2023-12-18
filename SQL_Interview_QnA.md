@@ -510,4 +510,4 @@ SELECT *,
 FROM product;
 ```
 
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/products_result.png?raw=true)
