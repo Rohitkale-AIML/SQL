@@ -124,7 +124,14 @@ AVG()
 - ROW_NUMBER() − unique number for each row within partition, with different numbers for tied values
 - RANK() − ranking within partition, with gaps and same ranking for tied values
 - DENSE_RANK() − ranking within partition, with no gaps and same ranking for tied values
-
+```SQL:
+SELECT *, 
+       ROW_NUMBER() OVER(PARTITION BY dept_name ORDER BY salary DESC) AS rn,
+       RANK() OVER(PARTITION BY dept_name ORDER BY salary DESC) AS rnk, 
+	      DENSE_RANK() OVER(PARTITION BY dept_name ORDER BY salary DESC) AS dens_rnk
+FROM employee;
+```
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/window_fu.png?raw=true)
 **ANALYTIC FUNCTIONS:**
 - LEAD(expr, offset, default) − the value for the row offset rows after the current; offset and default are optional; default values: offset = 1, default = NULL
 - LAG(expr, offset, default) − the value for the row offset rows before the current; offset and default are optional; default values: offset = 1, default = NULL
