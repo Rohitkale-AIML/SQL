@@ -258,3 +258,69 @@ GROUP BY
 )
 ORDER BY 1
 ```
+
+**Q: Find the most profitable orders. Most profitable orders are those whose sale price exceeded the average sale price for each city and whose deal size was not small?**
+```SQL:
+-- Solution 1: Using WITH clause
+WITH avg_sales_per_city AS
+    (SELECT c.city, AVG(sales) AS avg_sales
+     FROM sales_order s
+     JOIN customers c ON c.customer_id = s.customer
+     GROUP BY c.city)
+SELECT s.*
+FROM sales_order s
+INNER JOIN customers c ON c.customer_id = s.customer
+INNER JOIN avg_sales_per_city av ON av.city = c.city
+WHERE s.sales > av.avg_sales
+AND s.deal_size <> 'Small';
+
+-- Solution 2: Using Correlated subquery
+SELECT s.*
+FROM sales_order s
+INNER JOIN customers c 
+      ON c.customer_id = s.customer
+WHERE s.sales > (SELECT AVG(sales)
+                 FROM sales_order s2
+                 INNER JOIN customers c2 ON c2.customer_id = s2.customer
+                 WHERE c2.city = c.city
+                 GROUP BY c.city)
+AND s.deal_size <> 'Small';
+```
+
+**Q: Find the difference in average sales for each month of 2003 and 2004**
+```SQL:
+-- Solution 1: Using multiple WITH clause temp tables.
+WITH yr_2003 AS
+        (SELECT year_id, 
+                TO_CHAR(order_date, 'MON') AS mon, 
+                AVG(sales) AS avg_sales
+         FROM sales_order s
+         WHERE year_id = 2003
+         GROUP BY year_id, TO_CHAR(order_date, 'MON')),
+     yr_2004 AS
+        (SELECT year_id, 
+                TO_CHAR(order_date, 'MON') AS mon, 
+                AVG(sales) AS avg_sales
+         FROM sales_order s
+         WHERE year_id = 2004
+         GROUP BY year_id, TO_CHAR(order_date, 'MON'))
+SELECT Y03.mon,
+       ROUND(ABS(Y03.avg_sales - Y04.avg_sales)::DECIMAL,2) AS diff
+FROM yr_2003 Y03
+INNER JOIN yr_2004 Y04 ON Y03.mon = Y04.mon;
+
+-- Solution 2: using SELF join.
+WITH cte AS
+    (SELECT year_id, 
+            TO_CHAR(order_date, 'MON') AS mon, 
+            AVG(sales) AS avg_sales
+     FROM sales_order s
+     WHERE year_id in (2003, 2004)
+     GROUP BY year_id, TO_CHAR(order_date, 'MON'))
+SELECT Y03.mon, ROUND(ABS(Y03.avg_sales - Y04.avg_sales)::DECIMAL,2) AS diff
+FROM cte AS Y03
+INNER JOIN cte AS Y04
+     ON Y03.mon = Y04.mon
+WHERE Y03.year_id = 2003
+AND Y04.year_id = 2004;
+```
