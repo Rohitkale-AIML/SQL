@@ -91,6 +91,9 @@ SELECT SQRT(9);
 
 **SELECT CAST('2021-12-31' AS date);**
 
+**IFNULL(column_name, 'NA')**
+- It will return 'NA' if value in column is NULL
+
 ## SQL AGGREGATE Functions (GROUP BY Clause)
 
 COUNT(\*), COUNT(1), COUNT(2), COUNT(999), COUNT('xyz') => Gives total rows including NULL & Duplicate
