@@ -129,7 +129,7 @@ AVG()
 SELECT *, 
        ROW_NUMBER() OVER(PARTITION BY dept_name ORDER BY salary DESC) AS rn,
        RANK() OVER(PARTITION BY dept_name ORDER BY salary DESC) AS rnk, 
-	      DENSE_RANK() OVER(PARTITION BY dept_name ORDER BY salary DESC) AS dens_rnk
+       DENSE_RANK() OVER(PARTITION BY dept_name ORDER BY salary DESC) AS dens_rnk
 FROM employee;
 ```
 
