@@ -473,7 +473,7 @@ FROM students ;
 SELECT * FROM online_retail;
 ```
 
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/online_retail.png?raw=true)
 
 ```SQL:
 WITH cte AS
@@ -489,4 +489,4 @@ FROM cte
 WHERE rnk = 1;
 ```
 
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/online_retail_result.png?raw=true)
