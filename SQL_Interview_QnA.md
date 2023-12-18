@@ -491,7 +491,7 @@ WHERE rnk = 1;
 
 ![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/online_retail_result.png?raw=true)
 
-**Q: Write query to display the most & least expensive product under each category (corresponding to each record)**
+**Q: Write query to display the most, least & Second most expensive product under each category (corresponding to each record)**
 ```SQL:
 SELECT * FROM product;
 ```
@@ -499,11 +499,15 @@ SELECT * FROM product;
 ![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/products.png?raw=true)
 
 ```SQL:
+
 SELECT *,
-       FIRST_VALUE(product_name) OVER(PARTITION BY product_category ORDER BY price DESC) AS most_exp_prod,
+       FIRST_VALUE(product_name) OVER(PARTITION BY product_category ORDER BY price DESC
+                       		      RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS most_exp_prod,
        LAST_VALUE(product_name) OVER(PARTITION BY product_category ORDER BY price DESC
-                                     RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS least_exp_prod
+                                     RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS least_exp_prod,
+       NTH_VALUE(product_name, 2) OVER(PARTITION BY product_category ORDER BY price DESC
+                                       RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS second_most_exp_prod
 FROM product;
 ```
 
-![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/products_result.png?raw=true)
+![sample_image]()
