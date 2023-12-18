@@ -467,3 +467,26 @@ FROM students ;
 ```
 
 ![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/students_result.png?raw=true)
+
+**Q: Find the best selling item for each month (no need to separate months by year) where the biggest total invoice was paid. The best selling item is calculated using the formula (unitprice * quantity). Output the description of the item along with the amount paid.**
+```SQL:
+SELECT * FROM online_retail;
+```
+
+![sample_image]()
+
+```SQL:
+WITH cte AS
+    (SELECT description AS item, 
+	        TO_CHAR(invoicedate, 'MM') AS mon_id , 
+	        TO_CHAR(invoicedate, 'MON') AS mon, 
+	        ROUND(SUM(quantity * unitprice)::DECIMAL,2) AS tot_sales, 
+	        RANK() OVER(PARTITION BY TO_CHAR(invoicedate, 'MM') ORDER BY SUM(quantity * unitprice) DESC) AS rnk
+     FROM online_retail
+     GROUP BY description, TO_CHAR(invoicedate, 'MM'), TO_CHAR(invoicedate, 'MON'))
+SELECT item, mon, tot_sales
+FROM cte
+WHERE rnk = 1;
+```
+
+![sample_image]()
