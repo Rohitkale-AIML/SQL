@@ -187,3 +187,23 @@ ON s.artist_id = a.id
 GROUP BY s.artist_id, a.first_name, a.last_name
 ORDER BY s.artist_id;
 ```
+
+**Q: Display all the available paintings and all the artist. If a painting was sold then mark them as "Sold" and if more than 1 painting of an artist was sold then display a "\**" beside their name.**
+```SQL:
+SELECT 
+    p.name as painting_name, 
+    CONCAT(a.first_name, ' ', a.last_name, 
+           CASE WHEN x.no_of_paintings > 1 THEN ' **' END) as artist_name, 
+    CASE 
+        WHEN s.id IS NOT NULL THEN 'SOLD' 
+    END AS sold_or_not
+FROM paintings p
+FULL JOIN artists a 
+     ON a.id = p.artist_id
+LEFT JOIN sales s 
+     ON s.painting_id = p.id
+LEFT JOIN (SELECT artist_id, COUNT(*) AS no_of_paintings
+           FROM sales 
+           GROUP BY artist_id) x 
+     ON x.artist_id = a.id;
+```
