@@ -220,17 +220,62 @@ Although there are some differences between them, common table expressions and v
 - You can join more than two tables together. First, two tables are joined, then the third table is joined to the result of the previous joining.
 - You can use multiple JOIN conditions using the ON keyword once and the AND keywords as many times as you need.
 
+**INNER JOIN:**
+- JOIN (or explicitly INNER JOIN) returns rows that have matching values in both tables.
+```SQL:
+SELECT city.name, country.name
+FROM city
+[INNER] JOIN country
+ ON city.country_id = country.id;
+```
+
 **LEFT JOIN:**
 - LEFT JOIN returns all rows from the left table with matching rows from the right table. Rows without a match are filled with NULLs. LEFT JOIN is also called LEFT OUTER JOIN.
+```SQL:
+SELECT city.name, country.name
+FROM city
+LEFT JOIN country
+ ON city.country_id = country.id;
+```
 
 **RIGHT JOIN:**
 - RIGHT JOIN returns all rows from the right table with matching rows from the left table. Rows without a match are filled with NULLs. RIGHT JOIN is also called RIGHT OUTER JOIN.
+```SQL:
+SELECT city.name, country.name
+FROM city
+RIGHT JOIN country
+ ON city.country_id = country.id;
+```
 
 **FULL JOIN:**
 - FULL JOIN returns all rows from the left table and all rows from the right table. It fills the non-matching rows with NULLs. FULL JOIN is also called FULL OUTER JOIN.
+```SQL:
+SELECT city.name, country.name
+FROM city
+FULL [OUTER] JOIN country
+  ON city.country_id = country.id;
+```
 
 **CROSS JOIN:**
 - CROSS JOIN returns all possible combinations of rows from the left and right tables.
+```SQL:
+SELECT city.name, country.name
+FROM city
+CROSS JOIN country;
+
+-- non ANSI way
+SELECT city.name, country.name
+FROM city, country;
+```
+
+**NATURAL JOIN:**
+- NATURAL JOIN will join tables by all columns with the same name and same data type.
+- If some other columns with same name exist then it will mess with logic of joining tables.
+```SQL:
+SELECT city.name, country.name
+FROM city
+NATURAL JOIN country;
+```
 
 ## LIKE OPERATOR – PATTERN MATCHING
 - Use the _ character to identify any single character.
