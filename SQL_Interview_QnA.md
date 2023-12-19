@@ -597,3 +597,27 @@ FROM (
 ```
 
 ![SAMPLE_IMAGE](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/NTILE.png?raw=true)
+
+**Q: Write SQL for getting numbers of days since previous ride from the current ride for the particular rider and number of rides in the previous seven days for the particular rider**
+```SQL:
+WITH temp_rides AS(
+	SELECT
+		*,
+		LAG(date_of_ride, 1) OVER(PARTITION BY rider ORDER BY date_of_ride ASC) AS last_ride_date,
+		COUNT(1) OVER(PARTITION BY rider ORDER BY date_of_ride ASC
+                              RANGE BETWEEN INTERVAL '7 DAY' PRECEDING AND CURRENT ROW) AS no_rides_last_7_days
+	FROM
+		rides
+)
+SELECT
+	rider,
+	date_of_ride,
+	(date_of_ride - last_ride_date) AS days_since_last_ride,
+	no_rides_last_7_days-1 AS no_rides_last_7_days
+FROM 
+	temp_rides
+ORDER BY
+	date_of_ride ASC;
+```
+
+![sample_image]()
