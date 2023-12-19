@@ -12,6 +12,25 @@
 - It is a tool/software that allows one to access, interact with, and manipulate a database
 - RDBMS use SQL to communicate with database
 
+## What are ACID properties?
+- CID (Atomicity, Consistency, Isolation, Durability) properties are a set of principles that guarantee the reliability of database transactions.
+
+**Atomicity:**
+- **Definition:** All operations within a transaction must be completed successfully; otherwise, the transaction is rolled back to its previous state.
+- **Example:** Consider a bank transfer where money is withdrawn from one account and deposited into another. If the withdrawal or deposit fails for any reason, the entire transaction is rolled back to maintain consistency.
+
+**Consistency:**
+- **Definition:** A transaction brings the database from one valid state to another. The integrity constraints of the database are maintained.
+- **Example:** If a database enforces a constraint that every employee must belong to a department, a transaction attempting to add an employee without specifying a department would violate consistency and be rejected.
+
+**Isolation:**
+- **Definition:** Transactions are executed in isolation from each other, and the intermediate state of a transaction is not visible to other transactions until it is committed.
+- **Example:** Consider two transactions simultaneously updating the same bank account. Isolation ensures that the transactions do not interfere with each other, and each sees a consistent snapshot of the data.
+
+**Durability:**
+- **Definition:** Once a transaction is committed, its changes are permanent and survive subsequent system failures.
+- **Example:** If a user completes an online purchase, and the database acknowledges the transaction as committed, the record of that purchase should persist even if the system crashes immediately afterward. Durability ensures that committed transactions survive system failures.
+
 ## Types of SQL Commands
 **Data Query Language (DQL) (retrieve data from the DB using SQL queries):**
 - SELECT
