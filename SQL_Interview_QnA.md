@@ -621,3 +621,21 @@ ORDER BY
 ```
 
 ![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/rides.png?raw=true)
+
+**Q: Provide the details of teacher which teach Maths but not English**
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/faculty.png?raw=true)
+
+```SQL:
+SELECT DISTINCT
+	teacher
+FROM
+	faculty
+WHERE
+	subject LIKE 'Maths' AND 
+	teacher NOT IN (SELECT DISTINCT 
+                                teacher 
+                        FROM faculty 
+                        WHERE subject = 'English');
+```
+
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/faculty_results.png?raw=true)
