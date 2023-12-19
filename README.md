@@ -91,6 +91,19 @@
 - Requires a junction table to implement the relationship.
 - Example: Students and Courses, where each student can enroll in multiple courses, and each course can have multiple students.
 
+## What is difference between Where and Having clause? 
+- In SQL, the WHERE clause and the HAVING clause are both used to filter rows in a query, but they are used in different contexts.
+**WHERE Clause:**
+- The WHERE clause is used to filter rows before they are grouped and aggregated. It is applied to individual rows in the result set based on a specified condition.
+- It is commonly used with SELECT, UPDATE, and DELETE statements to filter rows based on specific criteria.
+- It is used with aggregate functions like COUNT, SUM, AVG, etc., to filter rows before the aggregation takes place.
+**HAVING Clause:**
+- The HAVING clause is used to filter the results of aggregate functions applied to grouped rows. It is used in conjunction with the GROUP BY clause.
+- It is used to filter the results after the rows have been grouped and aggregated, based on conditions involving the result of aggregate functions.
+- HAVING is useful when you want to filter aggregated results, such as finding groups where the count is greater than a certain value.
+
+In summary, the WHERE clause filters individual rows before any grouping or aggregation, while the HAVING clause filters the results of aggregate functions after grouping has been performed.
+
 ## Order of execution
 - FROM, including JOINs
 - WHERE
