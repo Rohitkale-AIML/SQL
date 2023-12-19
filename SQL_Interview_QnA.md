@@ -620,4 +620,4 @@ ORDER BY
 	date_of_ride ASC;
 ```
 
-![sample_image]()
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/rides.png?raw=true)
