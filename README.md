@@ -13,7 +13,7 @@
 - RDBMS use SQL to communicate with database
 
 ## What are ACID properties?
-- CID (Atomicity, Consistency, Isolation, Durability) properties are a set of principles that guarantee the reliability of database transactions.
+- ACID (Atomicity, Consistency, Isolation, Durability) properties are a set of principles that guarantee the reliability of database transactions.
 
 **Atomicity:**
 - **Definition:** All operations within a transaction must be completed successfully; otherwise, the transaction is rolled back to its previous state.
