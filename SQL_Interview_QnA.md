@@ -640,3 +640,62 @@ WHERE
 ```
 
 ![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/faculty_results.png?raw=true)
+
+**Q: Provide the number of rows in inner join, left join, right join, full join, coss join**
+```SQL:
+SELECT * FROM table1;
+```
+
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/tableA.png?raw=true)
+
+```SQL:
+SELECT * FROM table2;
+```
+
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/tableB.png?raw=true)
+
+```SQL:
+SELECT COUNT(*)
+FROM table1 t1
+INNER JOIN table2 t2
+ON t1.id = t2.id;
+```
+
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/inner_rows.png?raw=true)
+
+```SQL:
+SELECT COUNT(*)
+FROM table1 t1
+LEFT JOIN table2 t2
+ON t1.id = t2.id;
+```
+
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/left_rows.png?raw=true)
+
+
+```SQL:
+SELECT COUNT(*)
+FROM table1 t1
+RIGHT JOIN table2 t2
+ON t1.id = t2.id;
+```
+
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/right_rows.png?raw=true)
+
+
+```SQL:
+SELECT COUNT(*)
+FROM table1 t1
+FULL JOIN table2 t2
+ON t1.id = t2.id;
+```
+
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/full_rows.png?raw=true)
+
+```SQL:
+SELECT COUNT(*)
+FROM table1 t1
+CROSS JOIN table2 t2;
+```
+
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/cross_rows.png?raw=true)
