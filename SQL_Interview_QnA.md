@@ -699,3 +699,28 @@ CROSS JOIN table2 t2;
 ```
 
 ![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/cross_rows.png?raw=true)
+
+**Q: how many new user acquired MOM in UBER platform? (assume data is for 2015-2023)** 
+```SQL:
+SELECT * FROM uber_rides
+```
+
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/uber_rides.png?raw=true)
+
+```SQL:
+SELECT
+	EXTRACT(YEAR FROM time_stamp) AS sign_up_yr,
+	EXTRACT(MONTH FROM time_stamp) AS sign_up_mon,
+	COUNT(DISTINCT cust_id) AS mom_new_users
+FROM
+	uber_rides
+WHERE
+	time_stamp IN (SELECT DISTINCT FIRST_VALUE(time_stamp) OVER(PARTITION BY cust_id ORDER BY time_stamp ASC)
+				  FROM uber_rides)
+GROUP BY
+	sign_up_yr, sign_up_mon
+ORDER BY
+	sign_up_yr, sign_up_mon;
+```
+
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/uber_rides_result.png?raw=true)
