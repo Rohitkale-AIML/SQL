@@ -724,3 +724,30 @@ ORDER BY
 ```
 
 ![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/uber_rides_result.png?raw=true)
+
+**Q: Given a table of candidates and their skills, you're tasked with finding the candidates best suited for an open Data Science job. You want to find candidates who are proficient in Python, Tableau, and PostgreSQL. Write a query to list the candidates who possess all of the required skills for the job. Sort the output by candidate ID in ascending order.**
+'''SQL:
+SELECT DISTINCT candidate_id 
+FROM candidates
+WHERE skill = 'Python'
+INTERSECT
+SELECT DISTINCT candidate_id 
+FROM candidates
+WHERE skill = 'Tableau'
+INTERSECT
+SELECT DISTINCT candidate_id 
+FROM candidates
+WHERE skill = 'PostgreSQL'
+ORDER BY candidate_id;
+```
+
+```SQL:
+SELECT candidate_id
+FROM candidates
+WHERE skill IN ('Python', 'Tableau', 'PostgreSQL')
+GROUP BY candidate_id
+HAVING COUNT(skill) = 3
+ORDER BY candidate_id;
+```
+
+
