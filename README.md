@@ -347,7 +347,8 @@ NATURAL JOIN table_2 t2;
 
 ## CASTING
 - It lets you change the type of value to almost anything (integer, numeric, double precision, varchar, and many more).
-- SELECT CAST(column_name AS DATA_TYPE);
+- SELECT CAST(column_name AS DATA_TYPE) FROM table_name;
+- SELECT column_name::DATA_TYPE FROM table_name;
 
 ## SUBQUERIES
 - A subquery is a query that is nested inside another query, or inside another subquery
