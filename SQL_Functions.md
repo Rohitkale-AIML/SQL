@@ -1,3 +1,5 @@
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/SQL_operator_info.png?raw=true)
+
 ## SQL STRING Functions
 
 LOWER(column_name) => Lower case string
