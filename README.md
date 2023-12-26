@@ -343,6 +343,8 @@ NATURAL JOIN table_2 t2;
 - Use the _ character to identify any single character.
 - Use the % character to identify any number of characters (including 0 characters).
 
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/SQL_wild_card_info.png?raw=true)
+
 ## CASTING
 - It lets you change the type of value to almost anything (integer, numeric, double precision, varchar, and many more).
 - SELECT CAST(column_name AS DATA_TYPE);
