@@ -30,41 +30,32 @@ RRIM(column_name) => Remove white spaces from back/right
 
 ## SQL DATE Functions
 
-CURDATE() => Gives current Date YYYY-MM-DD
+CURRENT_DATE, CURRENT_TIME and CURRENT TIMESTAMP => return current date and time
 
-CURTIME() => Gives current Time HH:MM:SS (24 hour)
+EXTRACT(DAY FROM date_column) OR  DATE_PART('day', date_column) => Gives day number
 
-DAY(date_column) OR EXTRACT(DAY FROM date_column) => Gives day number
+EXTRACT(MONTH FROM date_column) OR  DATE_PART('month', date_column) => Gives month number 
 
-MONTH(date_column) OR EXTRACT(MONTH FROM date_column) => Gives month number 
+EXTRACT(YEAR FROM date_column) OR  DATE_PART('year', date_column) => Gives year
 
-YEAR(date_column) OR EXTRACT(YEAR FROM date_column) => Gives year
+EXTRACT(HOUR FROM date_column) OR DATE_PART('hour', date_column) => Gives hour of day
 
-HOUR(date_time_column) OR EXTRACT(HOUR FROM date_column) => Gives hour of day
+EXTRACT(MINUTE FROM date_column) OR DATE_PART('minute', date_column)=> Gives minute of time
 
-MINUTE(date_time_column) OR EXTRACT(MINUTE FROM date_column) => Gives minute of time
+DATE_TRUNC() to round down date or timestamp into specific level of precision.
+-DATE_TRUNC('month', date_column) OR DATE_TRUNC('hour', date_column) OR DATE_TRUNC('day', date_column)
 
-WEEKDAY(date_column) => Gives weekday number
+INTERVAL to add or subtract time intervals in calculations.
+- date_column - INTERVAL '3 days', date_column + INTERVAL '2 hours', date_column - INTERVAL '10 minutes'
 
-DAYNAME(date_column) => Gives dayname
+TO_CHAR() to convert date or timestamp into strings.
 
-MONTHNAME(date_column) => Gives name of month
+![sample_image](https://github.com/Rohitkale-AIML/SQL/blob/main/ERD-images/SQL_char_convert.png?raw=true)
 
-DATE(date_time_column) => Extracting the entire date part
-
-TIME(date_time_column) => Extracting the entire time part
-
-DATE_ADD(date_time_column, INTERVAL 30 MINUTE) => Add 30 mins
-
-DATE_SUB(date_time_column, INTERVAL 15 DAY) => Subtract 15 days
-
-DATEDIFF('High_date', 'Low_date') => number of days difference betwen two dates
-
-TIMESTAMPDIFF(HOUR, start_datetime, end_datetime) => hour duration between two timestamps
-
-TIMESTAMPDIFF(MINUTE, start_datetime, end_datetime) => minute duration between two timestamps
-
-STR_TO_DATE(string_column, "%Y-%m-%d %h:%i:%p") AS market_start_datetime => String to Date_Time Format
+- TO_CHAR(date_column, 'YYYY-MM-DD HH:MI:SS'), TO_CHAR(date_column, 'Month')
+ 
+column_name::DATE, TO_DATE(), column_name::TIMESTAMP, and TO_TIMESTAMP() to convert strings into date or timestamp.
+- TO_DATE('2023-08-27', 'YYYY-MM-DD'), TO_TIMESTAMP('2023-08-27 10:30:00', 'YYYY-MM-DD HH:MI:SS')
 
 ## SQL MATH Functions
 
