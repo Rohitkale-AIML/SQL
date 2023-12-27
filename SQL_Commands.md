@@ -1,4 +1,4 @@
-## Commans work for MySQL, PostgreSQL
+## Commands work for PostgreSQL
 
 **Create database using below command:**
 ```SQL:
