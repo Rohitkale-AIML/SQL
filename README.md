@@ -393,3 +393,5 @@ CREATE CLUSTERED INDEX index_name ON table_name (column_name);
 ```SQL:
 CREATE INDEX index_name ON table_name (column_name);
 ```
+
+**In SQL, NULL indicates the absence of a value. Unlike an empty string or zero, NULL doesn't represent a specific value, but rather, a missing or unknown piece of information.**
