@@ -43,7 +43,7 @@ EXTRACT(HOUR FROM date_column) OR DATE_PART('hour', date_column) => Gives hour o
 EXTRACT(MINUTE FROM date_column) OR DATE_PART('minute', date_column)=> Gives minute of time
 
 DATE_TRUNC() to round down date or timestamp into specific level of precision.
--DATE_TRUNC('month', date_column) OR DATE_TRUNC('hour', date_column) OR DATE_TRUNC('day', date_column)
+- DATE_TRUNC('month', date_column) OR DATE_TRUNC('hour', date_column) OR DATE_TRUNC('day', date_column)
 
 INTERVAL to add or subtract time intervals in calculations.
 - date_column - INTERVAL '3 days', date_column + INTERVAL '2 hours', date_column - INTERVAL '10 minutes'
