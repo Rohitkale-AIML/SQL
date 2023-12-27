@@ -90,13 +90,12 @@ SELECT SQRT(9);
 
 **NULLIF(x, y)**
 - To save yourself from division by 0 errors
-- The NULLIF(x, y) function will return NULL if x is the same as y, else it will return the x value.
+- The NULLIF(x, y) function will return **NULL** if x is the same as y, else it will return the x value.
 - NULLIF(column_name, 0)
-
-**SELECT CAST('2021-12-31' AS date);**
 
 **IFNULL(column_name, 'NA')**
 - It will return 'NA' if value in column is NULL
+- Handles two arguments, returning the second if the first is null; else, it returns the first.
 
 ## SQL AGGREGATE Functions (GROUP BY Clause)
 
